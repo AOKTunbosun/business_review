@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main.html' %}
+{% load static %}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/home.css' %}">
+    <title>Home</title>
+
+</head>
+
+<body>
+
+{% block content %}
+
+<section class="search-intro">
+    <div class="search-content">
+        <h2>Find Businesses Near You</h2>
+        <p>Discover local businesses, services, and hidden gems in any area. Whether you're looking for restaurants,
+            salons, tech hubs, or local markets — we make it easy to explore what's nearby.</p>
+
+        <form class="search-form">
+            <input type="text" placeholder="What are you looking for?"/>
+            <input type="text" placeholder="Enter location"/>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+<section id="top" class="top-view">
+    <h1 class="section-title"> Top-Viewed Business</h1>
+    <div class="top-grid">
+        <div class="top-box">
+            <h2>Lagos Bites</h2>
+            <h3>Popular Nigerian Dishes</h3>
+            <h4>500+ Reviews</h4>
+            <p>Category:Resturants</p>
+        </div>
+        <div class="top-box">
+            <h2>CodeTech Hub</h2>
+            <h3>Best Software solutions in Town.</h3>
+            <p>Category:Technology</p>
+        </div>
+        <div class="top-box">
+            <h2>Fashion Nova</h2>
+            <h3>Trendy Outfits, Great Prices, Awesome Services.</h3>
+            <p>Category:Fashion</p>
+        </div>
+        <div class="top-box">
+            <h2>Health First Clinic</h2>
+            <h3>Top-rated health services and wellness.</h3>
+            <p>Category:Health</p>
+        </div>
+        <div class="top-box">
+            <h2>SmartLearn Academy</h2>
+            <h3>Innovative e-learning and tutoring center.</h3>
+            <p>Category:Education</p>
+        </div>
+</section>
+<section id="browse" class="browse-view">
+    <h1 class="section-title"> Browse By Category</h1>
+    <div class="browse button">
+        <button>Resturants</button>
+        <button>Technology</button>
+        <button>Fashion</button>
+        <button>Education</button>
+        <button>Health</button>
+    </div>
+</section>
+
+{% endblock content %}
+</body>
+</html>

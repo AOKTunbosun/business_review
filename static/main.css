@@ -1,0 +1,130 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+
+
+  .search-intro {
+    background-color: #93a4b5;
+    color: white;
+    width: 100%;
+    padding: 80px 20px;
+    box-sizing: border-box;
+  }
+
+  .search-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .search-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-intro p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .search-form input{
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .search-form button {
+    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #010044;
+    color: white;
+    border: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form input {
+    color: #333;
+  }
+
+  .search-form button {
+    background-color: #010044;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form button:hover {
+    background-color: #003f88;
+  }
+  .top{
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+  }
+  h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .top-box {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 230px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    flex: 0 0 auto;
+  }
+  .top-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .browse-view{
+    padding: 50px 20px;
+    margin-top: 50px;
+    background-color: #93a4b5 ;
+    text-align: center;
+  }
+  .browse button {
+    font-size: 1rem;
+    align-items: center;
+    display: inline-flex;
+    left: 100px;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #010044;
+    color: white;
+    border: 30px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizReview - Home</title>
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+
+<body>
+<!-- Navbar -->
+
+<header>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+    <div class="log">
+        <a href="#" class="logo">
+            <img src="{% static 'logo.png' %}" alt="">
+        </a>
+        <h1>LocaView</h1>
+    </div>
+    <nav class="navbar">
+        <a href="#business">Business</a>
+        <a href="#blog">Blog</a>
+    </nav>
+    <div class="login">
+        <button>Login</button>
+        <button>Sign-Up</button>
+    </div>
+</header>
+
+</body>
+
+</html>
