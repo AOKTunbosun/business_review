@@ -1,0 +1,28 @@
+Business Review Platform Backend Set Up Documentation
+
+Creating a folder for our project
+Step 1: On pycharm, create a new project and name it business_review
+        On VS code, create a new folder and name it business_review and make it the base folder on the current VS code.
+
+Setting up the terminal
+Step 2: Navigate the integrated terminal in pycharm or VS code to the project's directory
+
+Using pipenv as the virtual environment
+Step 3: In your terminal, run 'pip install pipenv' (This will install pipenv as our virtual environment)
+
+Installing django
+Step 4: In your terminal, run 'pipenv install django' (This will install django within our virtual environment)
+
+Starting the project
+Step 5: In your terminal, run 'django-admin startproject business_review .' (This will start the project and the '.' at the end means it will be started in your current folder)
+
+Installing project dependencies
+Step 6: In your terminal, run 'pip install pymysql' (This will install a package which the project will use to connect to MySQL database)
+Step 7: In your terminal, run 'pipenv install cryptography' (This will install a package which the project will use to encrypt password)
+
+Creating an app within the django project
+Step 8: Navigate to where you can find manage.py in your project
+Step 9: In your terminal, run 'python manage.py startapp base' (This will create the base app for the project and most functionalites will be applied here)
+
+Creating the database
+Step 10: Go into MySQL workbench and create a new database called 'business_review_platform'
