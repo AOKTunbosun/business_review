@@ -82,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'business_review_platform',
-        'USER': 'root',
-        'PASSWORD': 'olatunbosun',
-        'HOST': '127.0.0.1',
+        'USER': 'brpMIST',
+        'PASSWORD': '#businessbrplogin!',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }

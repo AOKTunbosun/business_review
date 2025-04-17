@@ -1,28 +1,38 @@
-Business Review Platform Backend Set Up Documentation
+Project Dependencies
 
-Creating a folder for our project
-Step 1: On pycharm, create a new project and name it business_review
-        On VS code, create a new folder and name it business_review and make it the base folder on the current VS code.
+1. pymysql - In your terminal, Install using (pip install pymysql)
+2. cryptography - In your terminal, Install using (pipenv install cryptography)
+3. pillow - In your terminal, Install using (pipenv install pillow)
 
-Setting up the terminal
-Step 2: Navigate the integrated terminal in pycharm or VS code to the project's directory
+MySQL Connections
+Step 1: Create a new database called 'business_review_platform'
+        OR
+        Run the following SQL code in your MySQL workbench
+        CREATE DATABASE business_review_platform;
 
-Using pipenv as the virtual environment
-Step 3: In your terminal, run 'pip install pipenv' (This will install pipenv as our virtual environment)
+Step 1: Go to your MySQL workbench and create a new user
+        *. Open your MySQL workbench
+        *. Open an existing connection
+        *. Where your schemas or databases are listed
+        *. Check below, and you will find schemas and beside it, you will find administration
+        *. Click on administration and out of the displayed list, select User and privledges
+        *. Click on the button which says "Add Account" in the bottom left corner
+        *. Enter the provided user information
+        *. You will find some tabs above the page where you filled the information
+        *. Go to 'Administrative Roles'
+        *. Make sure all the roles are ticked
+        *. Click on 'Apply' in the bottom right corner
 
-Installing django
-Step 4: In your terminal, run 'pipenv install django' (This will install django within our virtual environment)
 
-Starting the project
-Step 5: In your terminal, run 'django-admin startproject business_review .' (This will start the project and the '.' at the end means it will be started in your current folder)
+        Give the following as your user information
+        Username: brpMIST
+        Password: #businessbrplogin!
+        Authentication: Click the down arrow and select 'caching_sha2_password'
 
-Installing project dependencies
-Step 6: In your terminal, run 'pip install pymysql' (This will install a package which the project will use to connect to MySQL database)
-Step 7: In your terminal, run 'pipenv install cryptography' (This will install a package which the project will use to encrypt password)
+        OR
+        Run the following SQL code in your MySQL workbench
 
-Creating an app within the django project
-Step 8: Navigate to where you can find manage.py in your project
-Step 9: In your terminal, run 'python manage.py startapp base' (This will create the base app for the project and most functionalites will be applied here)
+        CREATE USER 'brpMIST'@'localhost' IDENTIFIED BY '#businessbrplogin!';
+        GRANT ALL PRIVILEGES ON *.* TO 'brpMIST'@'localhost';
 
-Creating the database
-Step 10: Go into MySQL workbench and create a new database called 'business_review_platform'
+NOTICE: Make sure you create the user and the database before attempting to run the django server or else there will be error
