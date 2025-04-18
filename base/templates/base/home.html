@@ -24,7 +24,7 @@
         <p>Discover local businesses, services, and hidden gems in any area. Whether you're looking for restaurants,
             salons, tech hubs, or local markets — we make it easy to explore what's nearby.</p>
 
-        <form class="search-form">
+        <form method="GET" action="{% url 'business' %}" class="search-form">
             <input type="text" placeholder="What are you looking for?"/>
             <input type="text" placeholder="Enter location"/>
             <button type="submit">Search</button>

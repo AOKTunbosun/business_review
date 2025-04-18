@@ -13,6 +13,7 @@ def home(request):
 
 
 def business(request):
+    # q = request.GET.get('q') if request.GET.get('q') != None else ''
     context = {'businesses': businesses}
     return render(request, 'base/business.html', context)
 
