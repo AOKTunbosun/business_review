@@ -15,13 +15,13 @@
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-icon">☰</label>
     <div class="log">
-        <a href="#" class="logo">
+        <a href="{% url 'home' %}" class="logo">
             <img src="{% static 'logo.png' %}" alt="">
         </a>
         <h1>LocaView</h1>
     </div>
     <nav class="navbar">
-        <a href="{% url 'business' %}">Business</a>
+        <a href="{% url 'businesses' %}">Business</a>
         <a href="#blog">Blog</a>
     </nav>
     <div class="login">

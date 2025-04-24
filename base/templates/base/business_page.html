@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Businesses</title>
+</head>
+<body>
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <span>{{business.name}}</span>
+    <h4> {{business.id}} -- <a href="">{{business.name}}</a></h4>
+
+</div>
+
+
+{% endblock content %}
+</body>
+</html>
