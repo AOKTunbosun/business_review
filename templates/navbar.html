@@ -24,10 +24,16 @@
         <a href="{% url 'businesses' %}">Business</a>
         <a href="#blog">Blog</a>
     </nav>
+    {% if request.user.is_authenticated %}
+    <div>
+        <a href="{% url 'logout' %}"><small>{{request.user.username}}</small></a>
+    </div>
+    {% else %}
     <div class="login">
         <a href="{% url 'login' %}"><button>Login</button></a>
         <a href="{% url 'signup' %}"><button>Sign-Up</button></a>
     </div>
+    {% endif %}
 </header>
 
 </body>

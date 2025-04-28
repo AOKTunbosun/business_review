@@ -12,13 +12,16 @@
 <section class="search-intro">
     <div class="search-content">
         <h2>Find Businesses Near You</h2>
-        <p>Discover local businesses, services, and hidden gems in any area. Whether you're looking for restaurants,
-            salons, tech hubs, or local markets — we make it easy to explore what's nearby.</p>
+        <p>
+          Discover local businesses, services, and hidden gems in any area.
+          Whether you're looking for restaurants, salons, tech hubs, or local
+          markets — we make it easy to explore what's nearby.
+        </p>
 
         <form method="GET" action="{% url 'businesses' %}" class="search-form">
-            <input type="text" placeholder="What are you looking for?"/>
-            <input type="text" placeholder="Enter location"/>
-            <button name="q" type="submit">Search</button>
+            <input type="text" name="b" placeholder="What are you looking for?"/>
+            <input type="text" name="l" placeholder="Enter location"/>
+            <button type="submit">Search</button>
         </form>
     </div>
 </section>

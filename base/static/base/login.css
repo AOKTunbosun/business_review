@@ -1,0 +1,91 @@
+.login button {
+    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #010044;
+    color: white;
+    border: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login button:hover {
+    background-color: #0056b3;
+}
+
+section {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+}
+
+.logi {
+    background-color: #010044;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 30vw;
+    border-radius: 5rem;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logi h1 {
+    margin-bottom: 10px;
+}
+
+.login-class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-class h4 {
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-bottom: 5px;
+}
+
+.login-class input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 80%;
+    color: grey;
+}
+
+.login-class button {
+    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #0056b3;
+    margin-top: 20px;
+    color: white;
+    border: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-class button:hover {
+    background-color: white;
+    color: black;
+}
+
+p {
+    margin-top: 20px;
+}
+
+p a {
+    color: #0056b3;
+}
+
+p a {
+    color: #0056b3;
+}

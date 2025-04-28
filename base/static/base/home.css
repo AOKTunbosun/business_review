@@ -72,16 +72,24 @@
     margin-top: 50px;
     text-align: center;
   }
+  .top-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This centers the flex items horizontally */
+  gap: 30px; /* Adds consistent spacing between boxes */
+  margin: 0 auto;
+  max-width: 1200px; /* Or whatever maximum width you prefer */
+}
   .top-box {
     display: inline-block;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    margin-left: 40px;
+    margin-left: 8px;
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #f9f9f9;
     text-decoration: none;
     color: black;
@@ -117,4 +125,7 @@
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
+  }
+  .browse button:hover {
+    background-color: #0056b3;
   }
