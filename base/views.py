@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.http import HttpResponse
 
+
 # businesses = [
 #     {'id': 1, 'name': 'Dalzeem Ventures'},
 #     {'id': 2, 'name': 'Excellous Services'}
@@ -20,7 +21,9 @@ def home(request):
     context = {'businesses': businesses, 'categories': categories}
     return render(request, 'base/home.html', context)
 
+
 def businesses(request):
+    categories = Category.objects.all()
     b = request.GET.get('b') if request.GET.get('b') != None else ''
     l = request.GET.get('l') if request.GET.get('l') != None else ''
 
@@ -47,10 +50,8 @@ def businesses(request):
     else:
         businesses = Business.objects.filter()
 
-
-    context = {'businesses': businesses}
-    return render(request, 'base/businesses.html', context )
-
+    context = {'businesses': businesses, 'categories': categories}
+    return render(request, 'base/businesses.html', context)
 
 
 def business_page(request, pk):
@@ -59,11 +60,11 @@ def business_page(request, pk):
     context = {'business': business}
     return render(request, 'base/business_page.html', context)
 
+
 def login_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
 
         try:
             user = User.objects.get(username=username)
@@ -79,9 +80,9 @@ def login_page(request):
         else:
             messages.error(request, 'Password is incorrect')
 
-
     context = {}
     return render(request, 'base/login.html', context)
+
 
 def logout_user(request):
     logout(request)
@@ -90,6 +91,7 @@ def logout_user(request):
 
 def signup_page(request):
     return render(request, 'base/signup.html')
+
 
 def review_form(request, pk):
     form = ReviewForm()
