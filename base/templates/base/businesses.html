@@ -5,30 +5,37 @@
 <style>
     .home-container{
         display: grid;
-        grid-template-columns: 1fr  2fr
+        grid-template-columns: 1fr  3fr
     }
 </style>
 <div class="home-container">
 
-   <div>
+    <div>
         <h2>Categories</h2>
 
-
+        <div>
+            <a href="{% url 'businesses' %}">
+                All
+            </a>
+        </div>
         {% for category in categories %}
-            <div>
-                <a href="{% url 'business-page'}?q={{category.name}}">{{category.name}}</a>
+        <div>
+            <a href="{% url 'businesses' %}?b={{category.name}}">{{category.name}}</a>
 
-            </div>
-       {% endfor %}
+        </div>
+        {% endfor %}
     </div>
 
-    {% for business in businesses %}
+    <div>
+
+        {% for business in businesses %}
         <div>
             <a href="{% url 'business-page' business.id %}"><h4>{{business.name}}</h4></a>
             <h6>{{business.category}}</h6>
         </div>
         <hr>
-    {%endfor %}
+        {%endfor %}
+    </div>
 
 </div>
 
