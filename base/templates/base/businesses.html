@@ -2,14 +2,35 @@
 
 {% block content %}
 
-{% for business in businesses %}
-<div>
-    <a href="{% url 'business-page' business.id %}"><h4>{{business.name}}</h4></a>
-    <h6>{{business.category}}</h6>
-</div>
-<hr>
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr  2fr
+    }
+</style>
+<div class="home-container">
 
-{% endfor %}
+   <div>
+        <h2>Categories</h2>
+
+
+        {% for category in categories %}
+            <div>
+                <a href="{% url 'business-page'}?q={{category.name}}">{{category.name}}</a>
+
+            </div>
+       {% endfor %}
+    </div>
+
+    {% for business in businesses %}
+        <div>
+            <a href="{% url 'business-page' business.id %}"><h4>{{business.name}}</h4></a>
+            <h6>{{business.category}}</h6>
+        </div>
+        <hr>
+    {%endfor %}
+
+</div>
 
 
 {% endblock content %}
