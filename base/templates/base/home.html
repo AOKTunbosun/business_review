@@ -13,9 +13,9 @@
     <div class="search-content">
         <h2>Find Businesses Near You</h2>
         <p>
-          Discover local businesses, services, and hidden gems in any area.
-          Whether you're looking for restaurants, salons, tech hubs, or local
-          markets — we make it easy to explore what's nearby.
+            Discover local businesses, services, and hidden gems in any area.
+            Whether you're looking for restaurants, salons, tech hubs, or local
+            markets — we make it easy to explore what's nearby.
         </p>
 
         <form method="GET" action="{% url 'businesses' %}" class="search-form">
@@ -34,18 +34,26 @@
         <a href="{% url 'business-page' business.id %}">
             <div class="top-box">
                 <h3>{{business.name}}</h3>
-                <h4>{{business__reviews.count}}</h4>
+
+                {% for review in reviews %}
+                {% if review.business_id == business.id %}
+                <small>{{ review.review_text }}</small>
+                {% endif %}
+                {% endfor %}
                 <p>Category: {{business.category}}</p>
             </div>
         </a>
         {% endfor %}
+    </div>
 </section>
 
 <section id="browse" class="browse-view">
     <h1 class="section-title"> Browse By Category</h1>
     <div class="browse button">
         {% for category in categories %}
-        <button>{{category.name}}</button>
+        <a href="{% url 'businesses' %}?b={{category.name}}">
+            <button>{{category.name}}</button>
+        </a>
         {% endfor %}
     </div>
 </section>

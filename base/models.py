@@ -22,7 +22,7 @@ class Business(models.Model):
     city = models.CharField(max_length=30, null=False, blank=False)
     contact = models.BigIntegerField(null=True)
     contact_mail = models.TextField(null=False, blank=False)
-    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -34,26 +34,26 @@ class Business(models.Model):
 
 class Review(models.Model):
     id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    business_id = models.ForeignKey(Business, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
     rating = models.IntegerField(null=False)
     review_text = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # def __str__(self):
-    #     return self.review_id
+    def __str__(self):
+        return self.review_text
 
 
 # class BusinessImage(models.Model):
 #     id = models.AutoField(primary_key=True)
-#     business_id = models.ForeignKey(Business, on_delete=models.CASCADE)
+#     business = models.ForeignKey(Business, on_delete=models.CASCADE)
 #     image_url = models.ImageField(upload_to='business_images/uploaded')
 #     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class ReviewLike(models.Model):
     id = models.AutoField(primary_key=True)
-    review_id = models.ForeignKey(Review, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    review = models.ForeignKey(Review, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     liked_at = models.DateTimeField(auto_now_add=True)
 
     # def __str__(self):
@@ -62,8 +62,8 @@ class ReviewLike(models.Model):
 
 class Response(models.Model):
     id = models.AutoField(primary_key=True)
-    review_id =models.ForeignKey(Review, on_delete=models.CASCADE)
-    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    review =models.ForeignKey(Review, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     response_text = models.TextField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
 

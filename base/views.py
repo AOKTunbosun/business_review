@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .forms import ReviewForm
-from .models import Business, Category
+from .models import Business, Category, Review
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
@@ -15,10 +15,13 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
+    reviews = Review.objects.all()
     businesses = Business.objects.all()
     categories = Category.objects.all()
-    context = {'businesses': businesses, 'categories': categories}
+    # print(reviews)
+    context = {'businesses': businesses, 'categories': categories, 'reviews': reviews}
     return render(request, 'base/home.html', context)
+
 
 def businesses(request):
     b = request.GET.get('b') if request.GET.get('b') != None else ''
@@ -52,12 +55,12 @@ def businesses(request):
     return render(request, 'base/businesses.html', context )
 
 
-
 def business_page(request, pk):
     business = Business.objects.get(id=pk)
 
     context = {'business': business}
     return render(request, 'base/business_page.html', context)
+
 
 def login_page(request):
     if request.method == 'POST':
@@ -83,6 +86,7 @@ def login_page(request):
     context = {}
     return render(request, 'base/login.html', context)
 
+
 def logout_user(request):
     logout(request)
     return redirect('home')
@@ -90,6 +94,7 @@ def logout_user(request):
 
 def signup_page(request):
     return render(request, 'base/signup.html')
+
 
 def review_form(request, pk):
     form = ReviewForm()
