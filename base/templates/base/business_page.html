@@ -10,33 +10,61 @@
 
 <div class="business-card">
 
-        <div class="business-info">
-            <h1 class="business-name">{{business.name}}</h1>
-            <p class="business-category">{{ business.category__name }}</p>
-            <p class="business-location">{{ business.address }}, {{ business.city }}, {{ business.state }}</p>
-            <p class="business-description">
-                {{ business.description }}
-            </p>
-            <div class="reviews">
-                <h2>Customer Reviews</h2>
+    <div class="business-info">
+        <h1 class="business-name">{{business.name}}</h1>
+        <p class="business-category">{{ business.category__name }}</p>
+        <p class="business-location">{{ business.address }}, {{ business.city }}, {{ business.state }}</p>
+        <p class="business-description">
+            {{ business.description }}
+        </p>
+        <div class="reviews">
+            <h2>Customer Reviews</h2>
 
 
-                {% for each in review %}
+            {% for each in review %}
 
-                <div class="review">
-                    <strong>{{ each.user }}:</strong> {{ each.review_text }}
-                </div>
-
-                {% endfor %}
-
-
+            <div class="review">
+                <strong><a href="#">{{ each.user }}:</a></strong> {{ each.review_text }}
             </div>
+
+            {% endfor %}
+
+
         </div>
+
+        {% if request.user.is_authenticated %}
+        <div class="submit-review">
+            <h2>Leave a Review</h2>
+            <form method="POST" action="" class="review-form">
+                {% csrf_token %}
+
+
+                <!--                <input type="text" id="username" name="username" required>-->
+                <!--                <input type="hidden" id="business_id" value="{{ business.id }}">-->
+
+                <label for="rating">Rating (1-5)</label>
+                <select id="rating" name="rating" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+
+                <label for="review_text">Your Review</label>
+                <textarea id="review_text" name="review_text" rows="4" required></textarea>
+
+                <button type="submit">Send Review</button>
+            </form>
+        </div>
+        {% endif %}
+
     </div>
+</div>
 
 
 {% endblock content %}
-
 
 
 <!--<!DOCTYPE html>-->
@@ -48,14 +76,11 @@
 <!--<body>-->
 
 
-
-
 <!--<div>-->
 
 <!--    <h4> {{business.id}} &#45;&#45; <a href="">{{business.name}}</a></h4>-->
 
 <!--</div>-->
-
 
 
 <!--</body>-->

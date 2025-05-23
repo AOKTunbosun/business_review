@@ -46,7 +46,9 @@
     <h1 class="section-title"> Browse By Category</h1>
     <div class="browse button">
         {% for category in categories %}
-        <button>{{category.name}}</button>
+        <a href="{% url 'businesses' %}?b={{category.name}}">
+            <button>{{category.name}}</button>
+        </a>
         {% endfor %}
     </div>
 </section>
