@@ -1,21 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Businesses</title>
-</head>
-<body>
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
 
-<div>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'base/business_page.css' %}">
+{% endblock extra_css %}
 
-    <h4> {{business.id}} -- <a href="">{{business.name}}</a></h4>
 
-</div>
+<div class="business-card">
+
+        <div class="business-info">
+            <h1 class="business-name">{{business.name}}</h1>
+            <p class="business-category">{{ business.category__name }}</p>
+            <p class="business-location">{{ business.address }}, {{ business.city }}, {{ business.state }}</p>
+            <p class="business-description">
+                {{ business.description }}
+            </p>
+            <div class="reviews">
+                <h2>Customer Reviews</h2>
+
+
+                {% for each in review %}
+
+                <div class="review">
+                    <strong>{{ each.user }}:</strong> {{ each.review_text }}
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
 
 
 {% endblock content %}
-</body>
-</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Businesses</title>-->
+<!--</head>-->
+<!--<body>-->
+
+
+
+
+<!--<div>-->
+
+<!--    <h4> {{business.id}} &#45;&#45; <a href="">{{business.name}}</a></h4>-->
+
+<!--</div>-->
+
+
+
+<!--</body>-->
+<!--</html>-->
+
+

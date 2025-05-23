@@ -20,6 +20,7 @@ class Business(models.Model):
     description = models.TextField(null=True)
     address = models.TextField(null=False, blank=False)
     city = models.CharField(max_length=30, null=False, blank=False)
+    state = models.CharField(max_length=30, null=False, blank=False, default='None')
     contact = models.BigIntegerField(null=True)
     contact_mail = models.TextField(null=False, blank=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -5,13 +5,6 @@ from .models import Business, Category, Review
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
-from django.http import HttpResponse
-
-
-# businesses = [
-#     {'id': 1, 'name': 'Dalzeem Ventures'},
-#     {'id': 2, 'name': 'Excellous Services'}
-# ]
 
 
 # Create your views here.
@@ -19,7 +12,7 @@ def home(request):
     reviews = Review.objects.all()
     businesses = Business.objects.all()
     categories = Category.objects.all()
-    # print(reviews)
+
     context = {'businesses': businesses, 'categories': categories, 'reviews': reviews}
     return render(request, 'base/home.html', context)
 
@@ -57,8 +50,17 @@ def businesses(request):
 
 def business_page(request, pk):
     business = Business.objects.get(id=pk)
+    review = Review.objects.filter(business_id=business.id)
 
-    context = {'business': business}
+    print(review)
+    #
+    # review = []
+    # for each in reviews:
+    #     if reviews.business_id == business.id:
+    #         review.append(each)
+
+
+    context = {'business': business, 'review': review}
     return render(request, 'base/business_page.html', context)
 
 
