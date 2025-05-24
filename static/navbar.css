@@ -77,3 +77,64 @@ header {
   .login button:hover {
     background-color: #0056b3;
   }
+
+
+
+
+  .logged_in a{
+    color: #010044;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .logged_in a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #010044;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.arrow {
+  font-size: 0.8rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  color: #333;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show menu on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

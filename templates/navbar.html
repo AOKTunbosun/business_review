@@ -25,13 +25,24 @@
         <a href="#blog">Blog</a>
     </nav>
     {% if request.user.is_authenticated %}
-    <div>
-        <a href="{% url 'logout' %}"><small>{{request.user.username}}</small></a>
+    <div class="dropdown">
+        <button class="dropdown-toggle">
+            {{ user.username }} <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-menu">
+            <a href="{% url 'profile' user.id %}">Profile</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
     </div>
+
     {% else %}
     <div class="login">
-        <a href="{% url 'login' %}"><button>Login</button></a>
-        <a href="{% url 'signup' %}"><button>Sign-Up</button></a>
+        <a href="{% url 'login' %}">
+            <button>Login</button>
+        </a>
+        <a href="{% url 'signup' %}">
+            <button>Sign-Up</button>
+        </a>
     </div>
     {% endif %}
 </header>

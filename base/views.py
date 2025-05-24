@@ -134,3 +134,9 @@ def signup_page(request):
     return render(request, 'base/signup.html')
 
 
+def profile(request, pk):
+    user = User.objects.get(id=pk)
+
+    context = {'user': user}
+    return render(request, 'base/profile.html', context)
+
