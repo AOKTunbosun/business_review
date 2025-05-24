@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.hashers import make_password
 
 
 # Create your views here.
@@ -120,14 +121,16 @@ def logout_user(request):
 
 
 def signup_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password1')
+
+        user = User.objects.create_user(username=username, email=email, password=password)
+
+        login(request, user)
+        return redirect('home')
+
     return render(request, 'base/signup.html')
 
 
-# def review_form(request, pk):
-#     form = ReviewForm()
-#     if form.is_valid():
-#         form.save()
-#         return redirect('home')
-#
-#     context = {'form': form}
-#     return render(request, 'base/review_form.html', context)
