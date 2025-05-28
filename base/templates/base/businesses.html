@@ -10,31 +10,29 @@
 
 <div class="home-container">
 
-    <div>
+    <!-- Category Section -->
+    <div class="category-section">
         <h2>Categories</h2>
 
-        <div>
-            <a href="{% url 'businesses' %}">
-                All
-            </a>
+        <div class="category-links">
+            <a href="{% url 'businesses' %}" class="category-link">All</a>
+            {% for category in categories %}
+            <a href="{% url 'businesses' %}?b={{category.name}}" class="category-link">{{ category.name }}</a>
+            {% endfor %}
         </div>
-        {% for category in categories %}
-        <div>
-            <a href="{% url 'businesses' %}?b={{category.name}}">{{category.name}}</a>
-
-        </div>
-        {% endfor %}
     </div>
 
-    <div>
-
+    <!-- Business Section -->
+    <div class="business-section">
         {% for business in businesses %}
-        <div>
-            <a href="{% url 'business-page' business.id %}"><h4>{{business.name}}</h4></a>
-            <h6>{{business.category}}</h6>
+        <div class="business-card">
+            <a href="{% url 'business-page' business.id %}">
+                <h4>{{ business.name }}</h4>
+                <h6>{{ business.category }}</h6>
+            </a>
         </div>
         <hr>
-        {%endfor %}
+        {% endfor %}
     </div>
 
 </div>
