@@ -132,6 +132,13 @@ def signup_page(request):
         email = request.POST.get('email')
         password = request.POST.get('password1')
 
+        if User.objects.filter(email=email.exists()):
+            messages.error(request, 'Email has already been used')
+            return redirect('signup')
+        elif User.objects.filter(username=username.exists()):
+            messages.error(request, 'Username has already been used')
+            return redirect('signup')
+
         user = User.objects.create_user(username=username, email=email, password=password)
 
         login(request, user)
