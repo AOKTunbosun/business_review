@@ -20,10 +20,23 @@
         </a>
         <h1>LocaView</h1>
     </div>
+
+    {% if request.path != '/businesses/' %}
     <nav class="navbar">
         <a href="{% url 'businesses' %}">Business</a>
         <a href="#blog">Blog</a>
     </nav>
+    {% else %}
+    <nav class="navbar-search">
+        <form method="GET" action="{% url 'businesses' %}" class="navbar-search-form">
+            {% csrf_token %}
+            <input type="text" name="b" placeholder="Enter business name...."/>
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+    {% endif %}
+
+
     {% if request.user.is_authenticated %}
     <div class="dropdown">
         <button class="dropdown-toggle">
@@ -31,7 +44,7 @@
         </button>
         <div class="dropdown-menu">
             <a href="{% url 'profile' user.id %}">Profile</a>
-            <a href="#">Your businesses</a>
+            <a href="{% url 'user-business' %}">Your businesses</a>
             <a href="{% url 'logout' %}">Logout</a>
         </div>
     </div>

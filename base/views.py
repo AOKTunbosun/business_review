@@ -6,7 +6,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import redirect, get_object_or_404
-from django.contrib.auth.hashers import make_password
+
+
+
 
 
 # Create your views here.
@@ -14,6 +16,9 @@ def home(request):
     reviews = Review.objects.all()
     businesses = Business.objects.all()
     categories = Category.objects.all()
+
+
+
 
     context = {'businesses': businesses, 'categories': categories, 'reviews': reviews}
     return render(request, 'base/home.html', context)
@@ -46,6 +51,7 @@ def businesses(request):
 
     else:
         businesses = Business.objects.filter()
+
 
     context = {'businesses': businesses, 'categories': categories}
     return render(request, 'base/businesses.html', context)
@@ -140,3 +146,12 @@ def profile(request, pk):
     context = {'user': user}
     return render(request, 'base/profile.html', context)
 
+
+def user_business(request):
+    return render(request, 'base/user_business.html')
+
+
+def delete_object(request, pk):
+
+    context = {}
+    return render(request, 'base/delete.html', context)

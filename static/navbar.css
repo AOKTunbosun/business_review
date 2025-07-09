@@ -57,6 +57,47 @@ header {
     cursor: pointer;
     text-decoration: underline;
   }
+
+  .navbar-search-form {
+    display: flex;
+    flex-direction: columns;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    width: 100%;
+  }
+
+  .navbar-search-form input {
+    color: #333;
+    padding: 10px 10px;
+    font-size: 1rem;
+    border-color: #010044;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .navbar-search-form button {
+    font-size: 1rem;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-color: #010044;
+    color: white;
+    border: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar-search-form button:hover {
+    background-color: #0056b3
+  }
+
+  header .login {
+    position: relative;
+    display: inline-block;
+
+  }
+
   header .login a{
     font-size: 1.2rem;
     padding: 10px;
@@ -78,25 +119,10 @@ header {
     background-color: #0056b3;
   }
 
-
-
-
-  .logged_in a{
-    color: #010044;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .logged_in a:hover {
-    text-decoration: underline;
-  }
-
-
-
   .dropdown {
   position: relative;
   display: inline-block;
+  padding: 5px 10px;
 }
 
 .dropdown-toggle {
@@ -105,6 +131,7 @@ header {
   color: #010044;
   font-size: 1rem;
   cursor: pointer;
+  padding: 5px 5px
 }
 
 .arrow {

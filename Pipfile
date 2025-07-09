@@ -8,6 +8,8 @@ django = "*"
 pymysql = "*"
 cryptography = "*"
 pillow = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
