@@ -66,7 +66,7 @@
     background-color: white;
     text-align: center;
   }
-  h1{
+  .top-view h1{
     font-size: 2rem;
     margin-bottom: 20px;
     margin-top: 50px;
@@ -76,7 +76,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* This centers the flex items horizontally */
-  gap: 30px; /* Adds consistent spacing between boxes */
+  gap: 20px; /* Adds consistent spacing between boxes */
   margin: 0 auto;
   max-width: 1200px; /* Or whatever maximum width you prefer */
 }
@@ -123,6 +123,7 @@
     background-color: #010044;
     color: white;
     border: 30px;
+    margin: 5px;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -130,3 +131,60 @@
   .browse button:hover {
     background-color: #0056b3;
   }
+
+
+@media (max-width: 838px){
+.search-intro {
+    padding: 50px 25px;
+}
+
+.search-intro h2 {
+    font-size: 2.1rem;
+    margin-top: 1.5rem;
+
+  }
+}
+
+@media (max-width: 768px){
+.search-intro {
+    padding: 50px 25px;
+}
+
+.search-intro h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+
+.search-intro p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+.top-view h1{
+    font-size: 1.85rem;
+    margin-bottom: 15px;
+    margin-top: 35px;
+  }
+
+}
+
+@media (max-width: 630px){
+.search-intro {
+    padding: 35px 25px;
+}
+
+.search-intro h2 {
+    font-size: 1.5rem;
+}
+
+.search-intro p {
+    font-size: 0.9rem;
+}
+
+.top-view h1{
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    margin-top: 35px;
+  }
+}

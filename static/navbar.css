@@ -23,12 +23,12 @@ header {
 
   header .log {
     display: flex;
+    text-align: center;
     align-items: center;
-    margin-left:-80px;
   }
 
   header img {
-    height: 100px;
+    height: 80px;
    width: auto;
     border-radius: 100px;
   }
@@ -164,4 +164,60 @@ header {
 /* Show menu on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+
+
+@media (max-width: 838px){
+nav.navbar {
+    display: none;
+}
+}
+
+@media (max-width: 768px){
+}
+
+@media (max-width: 630px) {
+header {
+    padding: 0px;
+
+}
+
+header .log {
+    margin-left: 0px;
+}
+
+header img{
+    width: 60px;
+    height: auto;
+}
+header h1 {
+    margin-left: 5px;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+nav.navbar {
+    display: none;
+}
+
+nav.navbar-search {
+    display: none;
+}
+
+header .login {
+    margin-right: 10px;
+}
+
+header .login a{
+    padding: 2px;
+    color: black;
+    text-decoration: none;
+  }
+
+.login button {
+    font-size: 0.8rem;
+    padding: 10px 25px;
+  }
 }

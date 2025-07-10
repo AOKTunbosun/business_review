@@ -113,3 +113,9 @@
 .review-form button:hover {
     background-color: #1a252f;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

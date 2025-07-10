@@ -14,6 +14,8 @@ from pathlib import Path
 import dj_database_url
 import os
 
+from django.conf.global_settings import SECRET_KEY
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,13 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+secret_key = os.environ.get('SECRET_KEY')
+if secret_key:
+    SECRET_KEY = secret_key
+else:
+    SECRET_KEY = 'django-insecure-s#2!2&2k1!c8=4mr&5@17ddpa83)qt_g3x$1&un9@fld$s&0a2'
 # 'django-insecure-s#2!2&2k1!c8=4mr&5@17ddpa83)qt_g3x$1&un9@fld$s&0a2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split(' ')
 
 
 # Application definition
@@ -80,21 +86,22 @@ WSGI_APPLICATION = 'business_review.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'business_review_platform',
-    #     'USER': 'brpMIST',
-    #     'PASSWORD': '#businessbrplogin!',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'business_review_platform',
+        'USER': 'brpMIST',
+        'PASSWORD': '#businessbrplogin!',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
 database_url = os.environ.get('DATABASE_URL')
-DATABASES['default'] = dj_database_url.parse(database_url)
+if database_url:
+    DATABASES['default'] = dj_database_url.parse(database_url)
 
 # 'postgresql://businessreview_django_render_user:PwxZLaUPbSBMNCw7aeaDIuraRmOzuDgg@dpg-d1n8vu0dl3ps7384ksv0-a.frankfurt-postgres.render.com/businessreview_django_render'
 
@@ -145,5 +152,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
+raw_origins = os.getenv('CSRF_TRUSTED_ORIGINS', '')
+if raw_origins:
+    CSRF_TRUSTED_ORIGINS = [origin for origin in raw_origins.split(',') if origin.startswith('http://') or origin.startswith('https://')]
+else:
+    CSRF_TRUSTED_ORIGINS = []
 
