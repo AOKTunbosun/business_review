@@ -13,8 +13,8 @@ from django.shortcuts import redirect, get_object_or_404
 
 # Create your views here.
 def home(request):
-    reviews = Review.objects.all()
-    businesses = Business.objects.all()
+    reviews = Review.objects.filter()
+    businesses = Business.objects.order_by('-created_at')[:5]
     categories = Category.objects.all()
 
 
